@@ -1,5 +1,11 @@
-import './App.css'
+import NextAuth from 'next-auth'
+import Providers from 'next-auth/providers'
 
-const App = () => <div>Hello World</div>
-
-export default App
+export default NextAuth({
+  providers: [
+    Providers.Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+  ],
+})
